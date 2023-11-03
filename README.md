@@ -1,6 +1,8 @@
 # calculator_practice
 pyqt5 based calculator
 
+https://studyingrabbit.tistory.com/23의 코드 참고
+
 ## Goals
 
 * github 저장소 생성 및 관리 실습
