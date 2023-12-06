@@ -5,7 +5,7 @@ class Main(QDialog):
     def __init__(self):
         super().__init__()
         self.init_ui()
-
+    
     def init_ui(self):
         main_layout = QVBoxLayout()
 
@@ -15,17 +15,13 @@ class Main(QDialog):
         layout_number = QGridLayout()
         layout_equation_solution = QFormLayout()
 
-        ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성
-        label_equation = QLabel("Equation: ")
-        label_solution = QLabel("Solution: ")
-        self.equation = QLineEdit("")
-        self.solution = QLineEdit("")
+        ### 수식 입력과 답 출력을 동시에 하는 LineEdit
+        self.resultLine = QLineEdit("")
 
-        ### layout_equation_solution 레이아웃에 수식, 답 위젯을 추가
-        layout_equation_solution.addRow(label_equation, self.equation)
-        layout_equation_solution.addRow(label_solution, self.solution)
-
-        ### 사칙연상 버튼 생성
+        ### layout_equation_solution 레이아웃에 수식 입력과 답 출력을 동시에 하는 위젯 추가
+        layout_equation_solution.addRow(self.resultLine)
+        
+        ### 사칙연산 버튼 생성
         button_plus = QPushButton("+")
         button_minus = QPushButton("-")
         button_product = QPushButton("x")
@@ -92,11 +88,14 @@ class Main(QDialog):
     #################
     ### functions ###
     #################
+
+
     def number_button_clicked(self, num):
         equation = self.equation.text()
         equation += str(num)
         self.equation.setText(equation)
 
+    
     def button_operation_clicked(self, operation):
         equation = self.equation.text()
         equation += operation
