@@ -1,4 +1,6 @@
 import sys
+import numpy
+import matplotlib.pyplot as plt
 from PyQt5.QtWidgets import *
 
 class Main(QDialog):
@@ -21,20 +23,20 @@ class Main(QDialog):
         ### layout_equation_solution 레이아웃에 수식 입력과 답 출력을 동시에 하는 위젯 추가
         layout_equation_solution.addRow(self.resultLine)
         
-        ### 사칙연산 버튼 생성
-        button_plus = QPushButton("+")
-        button_minus = QPushButton("-")
-        button_product = QPushButton("x")
-        button_division = QPushButton("/")
-
         #추가 버튼들
         button_CE = QPushButton("CE")
         button_C = QPushButton("C")
         button_percent = QPushButton("%")
         button_inverse = QPushButton("1/x")
-        button_square = QPushButton("x^2")
-        button_root = QPushButton(x^(1/2))
+        button_square = QPushButton("x²")
+        button_root = QPushButton("√x")
 
+   
+        ### 사칙연산 버튼 생성
+        button_plus = QPushButton("+")
+        button_minus = QPushButton("-")
+        button_product = QPushButton("x")
+        button_division = QPushButton("/")
 
         ### 사칙연산 버튼을 클릭했을 때, 각 사칙연산 부호가 수식창에 추가될 수 있도록 시그널 설정
         button_plus.clicked.connect(lambda state, operation = "+": self.button_operation_clicked(operation))
