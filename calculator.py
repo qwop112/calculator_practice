@@ -29,7 +29,16 @@ class Main(QDialog):
         button_percent = QPushButton("%")
         button_inverse = QPushButton("1/x")
         button_square = QPushButton("x²")
-        button_root = QPushButton("√x")
+        button_root = QPushButton("²√x")
+        button_pm = QPushButton("+/-")
+
+        layout_operation.addWidget(button_CE)
+        layout_operation.addWidget(button_C)
+        layout_operation.addWidget(button_percent)
+        layout_operation.addWidget(button_inverse)
+        layout_operation.addWidget(button_square)
+        layout_operation.addWidget(button_root)
+        layout_operation.addWidget(button_pm)
 
    
         ### 사칙연산 버튼 생성
