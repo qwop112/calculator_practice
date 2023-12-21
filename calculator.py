@@ -30,6 +30,11 @@ class Main(QDialog):
         button_root = QPushButton("²√x")
         button_pm = QPushButton("+/-")
 
+        ### 추가 버튼들에 함수 연결
+        button_CE.clicked.connect(self.button_clear_clicked)
+        button_C.clicked.connect(self.button_clear_clicked)
+        button_percent.clicked.connect(self.button_percent_clicked)
+
 
         #추가 버튼들 레이아웃에 추가
         layout_buttons.addWidget(button_CE, 0, 1)
@@ -139,11 +144,15 @@ class Main(QDialog):
     def button_clear_clicked(self):
         self.resultLine.setText("")
 
-
     def button_backspace_clicked(self):
         equation = self.resultLine.text()
         equation = equation[:-1]
         self.resultLine.setText(equation)
+
+    def button_percent_clicked(self):
+        operand2 = self.resultLine.text()
+        solution = float(operand1) * float(operand2) /100
+        self.resultLine.setText(str(solution))
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
