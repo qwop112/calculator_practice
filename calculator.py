@@ -36,6 +36,8 @@ class Main(QDialog):
         button_percent.clicked.connect(self.button_percent_clicked)
         button_inverse.clicked.connect(self.button_inverse_clicked)
         button_square.clicked.connect(self.button_square_clicked)
+        button_root.clicked.connect(self.button_root_clicked)
+        button_pm.clicked.connect(self.button_pm_clicked)
 
         #추가 버튼들 레이아웃에 추가
         layout_buttons.addWidget(button_CE, 0, 1)
@@ -166,6 +168,16 @@ class Main(QDialog):
     def button_square_clicked(self):
         num = self.resultLine.text()
         solution = np.power(float(num), 2)
+        self.resultLine.setText(str(solution))
+
+    def button_root_clicked(self):
+        num = self.resultLine.text()
+        solution = np.sqrt(float(num))
+        self.resultLine.setText(str(solution))
+
+    def button_pm_clicked(self):
+        num = self.resultLine.text()
+        solution = float(num) * -1
         self.resultLine.setText(str(solution))
 
 if __name__ == '__main__':
