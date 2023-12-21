@@ -137,13 +137,13 @@ class Main(QDialog):
         self.resultLine.setText(str(solution))
 
     def button_clear_clicked(self):
-        self.equation.setText("")
-        self.solution.setText("")
+        self.resultLine.setText("")
+
 
     def button_backspace_clicked(self):
-        equation = self.equation.text()
+        equation = self.resultLine.text()
         equation = equation[:-1]
-        self.equation.setText(equation)
+        self.resultLine.setText(equation)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
