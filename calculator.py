@@ -63,7 +63,7 @@ class Main(QDialog):
 
         ### =, backspace 버튼 생성
         button_equal = QPushButton("=")
-        button_backspace = QPushButton("Backspace")
+        button_backspace = QPushButton("\u232B")
 
         ### =, backspace 버튼 클릭 시 시그널 설정
         button_equal.clicked.connect(self.button_equal_clicked)
