@@ -115,6 +115,9 @@ class Main(QDialog):
     ### functions ###
     #################
 
+    #계산 도중에 필요한 임시 변수들
+    operand1 = ""
+    operatorTemp = ""
 
     def number_button_clicked(self, num):
         equation = self.resultLine.text()
@@ -122,14 +125,16 @@ class Main(QDialog):
         self.resultLine.setText(equation)
     
     def button_operation_clicked(self, operation):
-        equation = self.equation.text()
-        equation += operation
-        self.equation.setText(equation)
+        global operand1
+        global operatorTemp
+        operand1 = self.resultLine.text()
+        operatorTemp = operation
+        self.resultLine.setText("")
 
     def button_equal_clicked(self):
-        equation = self.equation.text()
-        solution = eval(equation)
-        self.solution.setText(str(solution))
+        operand2 = self.resultLine.text()
+        solution = eval(operand1 + operatorTemp + operand2)
+        self.resultLine.setText(str(solution))
 
     def button_clear_clicked(self):
         self.equation.setText("")
