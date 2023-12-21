@@ -117,10 +117,9 @@ class Main(QDialog):
 
 
     def number_button_clicked(self, num):
-        equation = self.equation.text()
+        equation = self.resultLine.text()
         equation += str(num)
-        self.equation.setText(equation)
-
+        self.resultLine.setText(equation)
     
     def button_operation_clicked(self, operation):
         equation = self.equation.text()
