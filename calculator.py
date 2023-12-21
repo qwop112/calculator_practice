@@ -29,6 +29,8 @@ class Main(QDialog):
         button_root = QPushButton("²√x")
         button_pm = QPushButton("+/-")
 
+
+        #추가 버튼들 레이아웃에 추가
         layout_buttons.addWidget(button_CE, 0, 1)
         layout_buttons.addWidget(button_C, 0, 2)
         layout_buttons.addWidget(button_percent, 0, 0)
@@ -87,6 +89,13 @@ class Main(QDialog):
         button_dot = QPushButton(".")
         button_dot.clicked.connect(lambda state, num = ".": self.number_button_clicked(num))
         layout_buttons.addWidget(button_dot, 5, 2)
+
+
+        ### 버튼들 크기 조정
+        for i in range(6):
+            for j in range(4):
+                layout_buttons.itemAtPosition(i,j).widget().setFixedSize(90,45)
+
 
         ### 각 레이아웃을 main_layout 레이아웃에 추가
         main_layout.addLayout(layout_equation_solution)
