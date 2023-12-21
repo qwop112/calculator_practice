@@ -1,6 +1,7 @@
 import sys
 import numpy
 from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt
 
 class Main(QDialog):
     def __init__(self):
@@ -96,6 +97,12 @@ class Main(QDialog):
             for j in range(4):
                 layout_buttons.itemAtPosition(i,j).widget().setFixedSize(90,45)
 
+        ### 결과라인 서식
+        self.resultLine.setFixedHeight(50)
+        self.resultLine.setAlignment(Qt.AlignRight)
+        font = self.resultLine.font()
+        font.setPointSize(17)
+        self.resultLine.setFont(font)
 
         ### 각 레이아웃을 main_layout 레이아웃에 추가
         main_layout.addLayout(layout_equation_solution)
