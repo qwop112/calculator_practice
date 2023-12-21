@@ -1,5 +1,5 @@
 import sys
-import numpy
+import numpy as np
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
 
@@ -34,7 +34,8 @@ class Main(QDialog):
         button_CE.clicked.connect(self.button_clear_clicked)
         button_C.clicked.connect(self.button_clear_clicked)
         button_percent.clicked.connect(self.button_percent_clicked)
-
+        button_inverse.clicked.connect(self.button_inverse_clicked)
+        button_square.clicked.connect(self.button_square_clicked)
 
         #추가 버튼들 레이아웃에 추가
         layout_buttons.addWidget(button_CE, 0, 1)
@@ -137,9 +138,12 @@ class Main(QDialog):
         self.resultLine.setText("")
 
     def button_equal_clicked(self):
+        global operand1
         operand2 = self.resultLine.text()
         solution = eval(operand1 + operatorTemp + operand2)
         self.resultLine.setText(str(solution))
+        operand1 = str(solution)
+
 
     def button_clear_clicked(self):
         self.resultLine.setText("")
@@ -152,6 +156,16 @@ class Main(QDialog):
     def button_percent_clicked(self):
         operand2 = self.resultLine.text()
         solution = float(operand1) * float(operand2) /100
+        self.resultLine.setText(str(solution))
+
+    def button_inverse_clicked(self):
+        num = self.resultLine.text()
+        solution = 1/float(num)
+        self.resultLine.setText(str(solution))
+
+    def button_square_clicked(self):
+        num = self.resultLine.text()
+        solution = np.power(float(num), 2)
         self.resultLine.setText(str(solution))
 
 if __name__ == '__main__':
